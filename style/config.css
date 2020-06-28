@@ -1,0 +1,46 @@
+body {
+    background-image: linear-gradient(to right, #e8c3fd, #d2c3ff,#bac4ff, #a0c5ff, #86f5fc);
+    display:inline;
+    }
+.container {
+    background-color: white;
+    margin-top: 100px;
+    padding: 16px;
+}
+.content {
+    text-align: center;
+    margin-top: 50px;
+}
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #0095da;
+    box-sizing: border-box;
+}
+input[type = submit] {
+    background-color: #bac4ff;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor:pointer;
+    width: 100%;
+}
+input[type = submit] :hover{
+    opacity: 0.8;
+}
+
+input[type= file] {
+    color: #0095da;
+    width: 100%;
+}
+.cursor {
+    width: 3rem;
+    height: 3rem;
+    border: 2px solid black;
+    border-radius: 50%;
+    position: absolute;
+    
+}
