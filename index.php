@@ -97,7 +97,7 @@
 
                             <br class="my-4">
                     <div class="col-md-12">
-                            <a class="btn btn-primary"href="http://localhost:8080/test/admin.php">ADMIN</a>
+                            <a class="btn btn-primary"href="http://localhost/test/admin.php">ADMIN</a>
                     </div>
         </div>
 
@@ -109,7 +109,7 @@
               <? 
                 $con =  new mysqli('localhost','root','',"lottery");
                 if(!$con) trigger_error(mysqli_connect_error());
-                $nameSql = "select customer_name from customer_form where customer_id in (select cust_id from customer where lottery_num = $randomToo)";
+                $nameSql = "select customer_name from customer_form where customer_id in (select cust_id from customer where  winner=1 and lottery_num = $randomToo)";
                     $resultName = $con->query($nameSql);
                       if($row = $resultName->fetch_assoc()) {
                 echo "<h1 class='text-primary'><strong> You winner " .$row['customer_name']."</strong></h1>";
@@ -204,12 +204,12 @@
                                     echo "<div  id='dom$i' class='dorwoljin'><p>".$list[$i]."</p></div>";
                                 }
 
-                                // $con =  new mysqli('localhost','root','','lottery');
-                                // if(!$con) trigger_error(mysqli_connect_error());
+                                $con =  new mysqli('localhost','root','','lottery');
+                                if(!$con) trigger_error(mysqli_connect_error());
                               
                                       
-                                //  $ylagch="update customer set winner = 1,status = 0 where lottery_num =$randomToo  ";
-                                // $urdun = $con->query($ylagch);
+                                 $ylagch="update customer set winner = 1,status = 0 where lottery_num =$randomToo  ";
+                                $urdun = $con->query($ylagch);
                                 
                                     
                          ?>

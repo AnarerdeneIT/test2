@@ -13,7 +13,7 @@
     
 </head>
 <body>
-   <div class="container text-center "> 
+   <div class="container-fluid"> 
    <div class="col-12">
         <img src="./photos/123.jpg" class="img-fluid" alt="Desc" />
       </div>
