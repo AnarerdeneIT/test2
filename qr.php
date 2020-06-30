@@ -1,3 +1,11 @@
+<? 
+         $con =  new mysqli('localhost','root','',"lottery");
+         if(!$con) trigger_error(mysqli_connect_error());
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,9 +21,21 @@
         </script>
 
      <? 
+     if(isset($_REQUEST['id'])) {
+         $hashId = $_REQUEST['id'];
+         $selectQuery = "update qr_table set status = 1 where hashcode = '$hashId'";
+    
+        if($con->query($selectQuery)){
+                echo "<p class='text-center text-success'>Таны уншуулсан QR кодыг  амжилттай бүртгэлээ</p>";
+        }
+        else {
+            echo "<p class='text-center text-danger >Алдаа гарлаа!!!</p>";
+        }
+        
+
+     }
                         
-                        $con =  new mysqli('localhost','root','',"lottery");
-                        if(!$con) trigger_error(mysqli_connect_error());
+               
                       
                      
                         //type
@@ -41,16 +61,17 @@
                                  }
                              
 
-                                 $link = "http://192.168.43.248/test/qr.php?a=success&id=$hashcode";
+                                 $link = "http://192.168.43.248/test2/qr.php?a=success&id=$hashcode";
                                  $urlen = urlencode($link);
                                 
 
-                                $urlencode = "https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl='$urlen'";
+                                $urlencode = "https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=$urlen";
                                
                               
                                  @$rawImage = file_get_contents($urlencode);
                                  if($rawImage) {
                                      file_put_contents("qr/$register.jpg",$rawImage);
+                                    
                                  }
 
                             }
