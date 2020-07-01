@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>QR CODE </title>
+    <title>QR Код </title>
     <link href="./bootstrap-4.5.0/css/bootstrap.min.css" rel="stylesheet">
     <script src="./bootstrap-4.5.0/js/jquery-3.5.1.min.js"></script>
 </head>
@@ -20,6 +20,7 @@
                      
                         //type
                         if(isset($_POST['save'])) {
+                      
                             $type = $_POST['select1'];
                             $query = "select * from customer_form";
                             $result = $con->query($query);
@@ -45,7 +46,7 @@
                                  $urlen = urlencode($link);
                                 
 
-                                $urlencode = "https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl='$urlen'";
+                                $urlencode = "https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=$urlen";
                                
                               
                                  @$rawImage = file_get_contents($urlencode);
@@ -54,6 +55,12 @@
                                  }
 
                             }
+
+
+                            if(isset($_REQUEST['id'])) {
+                                echo "connected";
+                            }
+
                         }
 
                 ?> 
@@ -63,11 +70,11 @@
                 
               
 
-                <div style="background-color:#8c9ba5"class="col-md-12 col-lg-12 text-center  p-5 ">
+                <div style="background-color:#white"class="col-md-12 col-lg-12 text-center  p-5 ">
 
-                                <h2 class="text-center" style="color:#f5f7fa;">QR code</h2>
+                                <h2 class="text-center" style="color:#0095DA;">QR code</h2>
 
-                                
+                                    <br my="4">
                                 <form method="POST" class="d-flex flex-column  align-items-center " action="qr.php">
                                             <select style="width:10%;"class="text-center" name="select1" id="aztan">
 
@@ -82,8 +89,7 @@
                                                                 ?>      
                                             </select> 
 
-                                        <input class="text-center w-50 m-5 btn btn-primary border-5px" type="submit"  name="save" value="hadgalah"> 
-                                                    
+                                        <input class="text-center w-10 m-5 btn btn-primary border-5px" type="submit"  name="save" value="Хадгалах">            
                                 </form>
 
                              
@@ -97,44 +103,7 @@
                 
     
         
-        <footer>
-                    <div class="container fluid">
-                        <div class="row text-center" >
-
-                            <div class="col-md-6"> 
-
-                                        <hr class="light">
-                                        <h3 style="color:#8c9ba5;" >Contact</h3>
-                                        <p>99394044</p>
-                                        <p>Email: Anarerdene.otgoo@gmail.com</p>
-                                        <p>Muis</p>
-                            </div>
-
-
-                            <div class="col-md-6"> 
-
-                                        <hr class="light">
-                                        <h3 style="color:#8c9ba5">Contact</h3>
-                                        <p>99394044</p>
-                                        <p>Email: Anarerdene.otgoo@gmail.com</p>
-                                        <p>Muis</p>
-                            </div>
-
-                        </div>
-                    </div>
-
-
-                    <div class="container-fluid">
-                        <div class="row text-center  ">
-                            <div class="col-md-12">
-                                <hr class="light">
-                            <h5>Mongol ulsiin ih surguuli Medeellin tehnologin gazar</h5>
-                                <hr class="light">
-                            </div>
-                        
-                        </div>
-                    </div>
-        </footer>
+       
     
     
 

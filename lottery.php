@@ -11,7 +11,7 @@
 <style>
 
     body {
-        background-color:aliceblue;
+
     }
     input[type = text] {
         border: 1px solid #007bff;
@@ -56,7 +56,7 @@ function addStatus() {
     <div class="container text-center">
                          <form class="" id="forms" action="lottery.php?a=addStatus">
                                     <div class="col-12">
-                                    <h3 class="page-header" style="color:#007bff">Sugalaanii ner</h3>
+                                    <h3 class="page-header" style="color:#007bff">Сугалааны нэр</h3>
                                     </div>
                                 
                                     <div class="col-12">
@@ -108,101 +108,55 @@ function addStatus() {
 
 
 
+                    <div class="parent_carousel" style="min-height: 620px;">
+
                     <div id="carouselExampleIndicators" class="carousel slide" date-ride="carousel">
 
-                            <ol class="carousel-indicators">
+                        <ol class="carousel-indicators " style="margin-bottom:-50px;background-color:#0095DA;opacity:0.8;">
+                                <? 
+                                    for($i=0 ; $i<count($array_map) ; $i++) {
+                                            if($i == 0) {
+                                                echo  "<li data-target='#carouselExampleIndicators' class='active' data-slide-to='$i' ></li>" ;
+                                            }
+                                            else  echo  "<li data-target='#carouselExampleIndicators' data-slide-to='$i' ></li>" ;
+                                    
+                            
+                                    }
+                                
+                            
+                                    ?>
+                                
+
+                        </ol>
+
+                        <div class="container ">
+                        
+                        <div class="carousel-inner "  >
                                     <? 
-                                        for($i=0 ; $i<count($array_map) ; $i++) {
-                                                if($i == 0) {
-                                                    echo  "<li data-target='#carouselExampleIndicators' class='active' data-slide-to='$i' ></li>" ;
-                                                }
-                                                else  echo  "<li data-target='#carouselExampleIndicators' data-slide-to='$i' ></li>" ;
-                                         
-                                  
-                                        }
-                                      
-                                  
-                                        ?>
+                                    
                                     
 
-                            </ol>
-
-                           <div class="container ">
-                              
-                           <div class="carousel-inner" >
-                                        <? 
-                                           
-                                        
-
-                                           for( $i=0 ; $i <  count($array_map);$i++) {
-                                               if($i == 0 ) {
-                                                   echo "<div class='carousel-item active'>
-                                                   <img class='d-block' style='width:90%;height:700px;' src='./photos/$array_map[$i]' alt=$i>  </div>";
-                                               }
-                                               else {
-                                                echo "<div class='carousel-item '>
-                                                <img class='d-block' style='width:90%;height:700px;' src='./photos/$array_map[$i]' alt=$i> </div>";
-                                               }
-                                           }
-                                      
-                                        
-                                        ?>
-                               
-
-                               
+                                    for( $i=0 ; $i <  count($array_map);$i++) {
+                                        if($i == 0 ) {
+                                            echo "<div class='carousel-item active mt-3 '>
+                                            <img class='d-block ' style='margin-left:250px;width:60%;height:500px;' src='./photos/$array_map[$i]' alt=$i>  </div>";
+                                        }
+                                        else {
+                                            echo "<div class='carousel-item mt-3'>
+                                            <img class='d-block ' style='margin-left:250px;width:60%;height:500px;' src='./photos/$array_map[$i]' alt=$i> </div>";
+                                        }
+                                    }
                                 
-                            </div>
+                                    
+                                    ?>
+                        </div>
 
-                               
-
-
-                           </div>
-
-                  
-
-
+                        </div>
+                        </div>
                     </div>
             
 
 
-<footer>
-    <div class="container fluid">
-        <div class="row text-center" >
-
-            <div class="col-md-6"> 
-
-                        <hr class="light">
-                        <h3 style="color:#007bff">Anarerdene</h3>
-                        <p>99394044</p>
-                        <p>Email: Anarerdene.otgoo@gmail.com</p>
-                        <p>Muis 4 IT enginnering</p>
-            </div>
-
-
-            <div class="col-md-6"> 
-
-                        <hr class="light">
-                        <h3 style="color:#007bff">Narmandakh</h3>
-                        <p>80247030</p>
-                        <p>Email: narmandakhteneg@gmail.com</p>
-                        <p>Muis 4 IT enginnering</p>
-            </div>
-
-        </div>
-    </div>
-
-
-    <div class="container-fluid">
-        <div class="row text-center  ">
-            <div class="col-md-12">
-                <hr class="light">
-            <h5>Mongol ulsiin ih surguuli Medeellin tehnologin gazar</h5>
-                <hr class="light">
-            </div>
-           
-        </div>
-    </div>
-</footer>
    
   
     <script src="./bootstrap-4.5.0/js/bootstrap.min.js"></script>

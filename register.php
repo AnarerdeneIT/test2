@@ -10,6 +10,11 @@
     <script src="./bootstrap-4.5.0/js/jquery-3.5.1.min.js"></script>
 <body>
  
+<script>
+
+ 
+
+</script>
  <? 
      
   
@@ -48,25 +53,25 @@
         <div class="container padding">
 
 
-            <div class="jumbotron ">
 
-            <div class="text-center">
+                     <div class="text-center">
 
-                        <h2>Register</h2>
+                                                  <h2>Бүртгэл</h2>
                             <form method="POST" class="d-flex flex-column  align-items-center " action="register.php">
                                
-                                <input class="mt-4 w-50" type="text" name="name" placeholder="Enter Username">
+                                <input class="mt-4 w-50" type="text" name="name" placeholder="Нэр">
                                
-                                <input class="mt-4 w-50" type="text" name="register" placeholder="Registerin dugaar">
+                                <input class="mt-4 w-50" type="text" name="register" placeholder="Регистерийн дугаар">
                               
-                                <input class="mt-4 w-50" type="text" name= "phone" placeholder="Utasnii dugaar">
+                                <input class="mt-4 w-50" type="text" name= "phone" placeholder="Утасны дугаар">
                                 
-                                <textarea  class="mt-4 w-50" name="hayg" placeholder=""> </textarea>
+                                <textarea  class="mt-4 w-50" name="hayg" placeholder="Хаяг"> </textarea>
 
-                                <input class="text-center w-50 m-5 btn btn-primary border-5px"type="submit" name="save" value="hadgalah"> 
+                                <input class="text-center w-50 m-5 btn btn-primary border-5px"type="submit" onclick="abc()" name="save" value="Хадгалах"> 
                             </form>
            
-
+                    </div>
+           
         </div>
     
 </body>

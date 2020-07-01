@@ -76,7 +76,11 @@
     }
 ?>
 
-    <div class="container">
+
+
+
+
+    <div class="container shadow-lg p-4 mb-5 bg-white rounded">
                     <div class="content">
                         <form method="POST" action="config.php?a=save" enctype="multipart/form-data" >
 
@@ -99,8 +103,8 @@
 
                              
 
-                             <input  type="text" name="oron" placeholder="oron"/>
-                             <input  type="text" name="aztan" placeholder="aztan"/>
+                             <input  type="text" name="oron" placeholder="орон"/>
+                             <input  type="text" name="aztan" placeholder="азтан"/>
 
                            
                            <input type="hidden" name="a" value="insert">
@@ -113,7 +117,13 @@
                         </form>
                         </div>
 
-        </div>
+     </div>
+
+
+
+
+
+    
 
 
         <script src="./bootstrap-4.5.0/js/bootstrap.min.js"></script>

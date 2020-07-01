@@ -110,16 +110,16 @@ function addStatus() {
 
 
 ?>
-    <div class="container text-center">
-                         <form class="border col-12 b-color"  id="forms" action="data.php?a=addStatus">
+    <div id="container-mid" class="container text-center shadow-lg p-3  bg-white rounded" > 
+                         <form class=" col-12 b-color"  id="forms" action="data.php?a=addStatus">
                              <br>
-                                <h3>Sugalaanii neriig oruulna uu !!!</h3>
+                                <h3>Сугалааны нэрийг оруулна уу!</h3>
                                 <br>
                                 
                                 <div class="side-by-side clearfix">
 
                         <div class="text-left">
-                               <p><strong>Register No</strong></p>
+                               <p><strong>Регистерийн дугаар</strong></p>
                         
                         <select data-placeholder="Choose a Country..."  name="select" class="chosen-select" tabindex="2">
                                             <? 
@@ -157,7 +157,7 @@ function addStatus() {
 
 
                                             <input type="hidden" name="a" value="addStatus"/>
-                                            <input type="submit"/> 
+                                            <input type="submit" value ="Бүртгэх"/> 
                                     </div>
                                     <br>
                         </form>
@@ -165,44 +165,8 @@ function addStatus() {
 
 
 
-    <footer>
-    <div class="container fluid">
-        <div class="row text-center" >
 
-            <div class="col-md-6"> 
-
-                        <hr class="light">
-                        <h3>Contact</h3>
-                        <p>99394044</p>
-                        <p>Email: Anarerdene.otgoo@gmail.com</p>
-                        <p>Muis</p>
-            </div>
-
-
-            <div class="col-md-6"> 
-
-                        <hr class="light">
-                        <h3>Contact</h3>
-                        <p>99394044</p>
-                        <p>Email: Anarerdene.otgoo@gmail.com</p>
-                        <p>Muis</p>
-            </div>
-
-        </div>
-    </div>
-
-
-    <div class="container-fluid">
-        <div class="row text-center  ">
-            <div class="col-md-12" style="background-color:   #2b5c59;">
-                <hr class="light">
-            <h5>Mongol ulsiin ih surguuli Medeellin tehnologin gazar</h5>
-                <hr class="light">
-            </div>
-           
-        </div>
-    </div>
-</footer>
+    
 <script src="chosen.jquery.js" type="text/javascript"></script>
 
     <script src="docsupport/prism.js" type="text/javascript" charset="utf-8"></script>

@@ -1,5 +1,5 @@
 html body {
-background-color: #dfe3e6;
+    background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
 }
 .header a {
     text-decoration:none;

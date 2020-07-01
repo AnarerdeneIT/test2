@@ -97,7 +97,7 @@
 
                             <br class="my-4">
                     <div class="col-md-12">
-                            <a class="btn btn-primary"href="http://localhost/test/admin.php">ADMIN</a>
+                            <a class="btn" style="background-color:#0095DA;"href="http://localhost/test/admin.php">ADMIN</a>
                     </div>
         </div>
 
@@ -148,7 +148,7 @@
                              </select> 
                              <hr class="my-3">
 
-                <div class="img-fluid text-center shadow p-3 mb-5  rounded-sm">
+                <div class="img-fluid text-center">
                 <? 
             
                     $typeId=1;
@@ -181,7 +181,7 @@
                 <main>
                 </main>
                 <input type="hidden" name="a" value="search">
-                 <input class="btn btn-primary"style="width:20%;font-size:18px;margin:20px auto;"  type="submit" value="Search" name="search" />
+                 <input class="btn "style="background-color:#0095DA;width:20%;font-size:18px;margin:20px auto;"  type="submit" value="Search" name="search" />
                 
 
         
