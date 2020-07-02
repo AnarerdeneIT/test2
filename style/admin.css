@@ -1,11 +1,11 @@
 html body {
-    background-color:white;
+    background-image: url()
 }
 
 #buttons button{
     color:#fff;
-    width:140px;
-    height: 40px;
+    width:15%;
+    height:40%;
 }
 
 #nav {
@@ -13,7 +13,7 @@ background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
 }
 
 
-#buttons button:hover {
+#navbarNavDropdown button:hover {
     color:black;
     border-bottom:1px solid aqua;
     transform: scale(1.1);
@@ -25,10 +25,16 @@ footer {
 }
 
 #texts p {
+    font-size:18px;
     color:black;
 }
 
 
-#texts  h2{
+.footer-title{
+    font-size:36px;
     color:#0095da;
+}
+#nav img {
+    background-color:white;
+    margin-top:5px;
 }

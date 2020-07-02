@@ -137,11 +137,11 @@ function addStatus() {
                         </div>
                     </div>  
 
-    <br>
+                                         <br>
 
                                 
                                     <div class="input">
-                                    <select style="width:10%;"class="float-left" name="select1" id="aztan">
+                                    <select class="float-left" name="select1" id="aztan">
                                                       <? 
 
                                                             $con =  new mysqli('localhost','root','',"lottery");

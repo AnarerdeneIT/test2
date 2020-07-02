@@ -5,28 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="./script/main.js"></script>
-    <title>Lottery</title>
+    <title>Сугалаа</title>
 
   <link href="./bootstrap-4.5.0/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <link rel="stylesheet" href="./style/index.css">
 <script src="./bootstrap-4.5.0/js/jquery-3.5.1.min.js"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.4/gsap.min.js"></script>
 
 <script>
 
-
+    
            
 
 
 </script>
 <body>
 <? 
-    $orontest='';
-    $typeIdddd='';
-    $list=[];
-    $randomToo =0;
+$con =  new mysqli('localhost','root','',"lottery");
+if(!$con) trigger_error(mysqli_connect_error());
+      $orontest='';
+      $typeIdddd='';
+      $list=[];
+      $randomToo =0;
     
 
  switch(@$_GET['a']) {
@@ -35,10 +37,12 @@
   
     }
     function save() { 
+
+      
         global $list;
         global $id;
         global $randomToo;
-        global $typeIdddd;
+        global $typeIdddd, $con;
 
         $type = 1;   
 
@@ -47,8 +51,7 @@
         $typeIdddd=$type;
   
 
-                    $con =  new mysqli('localhost','root','',"lottery");
-                    if(!$con) trigger_error(mysqli_connect_error());
+                    
                                 $selectSql = "
                                 select lottery_id
                                 from lottery_name
@@ -80,40 +83,49 @@
                  }
 
                 $list = str_split((string)$randomToo);
+
     
     } 
 
    
 
 ?>
-    <div class="container text-right"> 
-       <div class="row">
-
-            
+    <div class="container-fluid text-right"> 
+       <div class="row menu">
                         <div class="col-md-6 text-left">
-                                <img style="height:100;width:100px;"src="./photos/123.jpg" class="img-fluid" alt="Desc" />
+                                <img style="height:100;width:100px;"src="./photos/tdb.png" class="img-fluid" alt="Desc" />
                     
                         </div>
 
                             <br class="my-4">
-                    <div class="col-md-12">
-                            <a class="btn" style="background-color:#0095DA;"href="http://localhost/test/admin.php">ADMIN</a>
+                    <div class="col-md-6">
+                            <a class="btn" href="http://localhost/test/admin.php">АДМИН</a>
                     </div>
         </div>
 
-        <div class="col-md-12 text-center"  class="ygagch" id="ylagch">
+        <div class="col-md-12 text-center" id="ylagch">
              
-              <h1 class="text-center text-primary">Lottery:<? echo $randomToo?></h1>
+              <h1 class="text-center text-primary">Сугалааны дугаар:<? echo $randomToo?></h1>
 
           
               <? 
-                $con =  new mysqli('localhost','root','',"lottery");
-                if(!$con) trigger_error(mysqli_connect_error());
-                $nameSql = "select customer_name from customer_form where customer_id in (select cust_id from customer where  winner=1 and lottery_num = $randomToo)";
-                    $resultName = $con->query($nameSql);
-                      if($row = $resultName->fetch_assoc()) {
-                echo "<h1 class='text-primary'><strong> You winner " .$row['customer_name']."</strong></h1>";
-            }
+            
+                $ylagch="update customer set winner = 1 ,status = 0 where lottery_num =$randomToo  ";
+                $urdun = $con->query($ylagch);
+
+                $nameSql = "select f.customer_name from customer_form f left join customer c on f.customer_id = c.cust_id where c.winner = 1 and c.lottery_num = " . $randomToo;
+             
+                if($resultName = $con->query($nameSql)) {
+                    if($row = $resultName->fetch_assoc()) {
+                        echo "<h1 class='text-primary'><strong>Эрхэм хүндэт хэрэглэгч&nbsp" .$row['customer_name']. "&nbspта азтан боллоо.</strong></h1>";
+                    }
+                    else {
+                        echo "<h1 class='text-primary'><strong>Алдаа ялагч үлдсэнгүй</strong></h1>";
+                    }
+                }
+
+            
+                   
               ?>
 
         </div>
@@ -126,9 +138,9 @@
     <div id="container" class="container"  >
 
     <form action="index.php?a=save">
-            <div class="d-flex justify-content-center flex-column">
+            <div class="d-flex justify-content-center flex-column pic">
           
-                             <select style="width:15%;"
+                             <select
                               name="select1" id="aztan">
                                     <? 
 
@@ -181,13 +193,7 @@
                 <main>
                 </main>
                 <input type="hidden" name="a" value="search">
-                 <input class="btn "style="background-color:#0095DA;width:20%;font-size:18px;margin:20px auto;"  type="submit" value="Search" name="search" />
-                
-
-        
-
-
-
+                 <input class="btn "  type="submit" value="Хайх" name="search" />
         
             </div>
  </form>
@@ -203,22 +209,9 @@
                                  
                                     echo "<div  id='dom$i' class='dorwoljin'><p>".$list[$i]."</p></div>";
                                 }
-
-                                $con =  new mysqli('localhost','root','','lottery');
-                                if(!$con) trigger_error(mysqli_connect_error());
-                              
-                                      
-                                 $ylagch="update customer set winner = 1,status = 0 where lottery_num =$randomToo  ";
-                                $urdun = $con->query($ylagch);
                                 
-                                    
                          ?>
                     </div>
-
-   
-
-
-  
     
 </body>
 </html>

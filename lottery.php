@@ -56,13 +56,13 @@ function addStatus() {
     <div class="container text-center">
                          <form class="" id="forms" action="lottery.php?a=addStatus">
                                     <div class="col-12">
-                                    <h3 class="page-header" style="color:#007bff">Сугалааны нэр</h3>
+                                    <h3 class="page-header" style="color:#0095DA">Сугалааны нэр</h3>
                                     </div>
                                 
-                                    <div class="col-12">
+                                    <div class="col-12 mt-3">
                                             <input type="hidden" name="a" value="addStatus"/>
-                                            <input type="text" name="name" placeholder="name"/> 
-                                            <input class="btn btn-primary" type="submit"/> 
+                                            <input style="width:20%;height:35px;" type="text" name="name" placeholder=""/> 
+                                            <input class="btn"  value="Хадгалах"type="submit"/> 
                                     </div>
                         </form>
     </div>

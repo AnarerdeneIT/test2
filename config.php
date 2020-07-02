@@ -40,12 +40,12 @@
             if($row = $result->fetch_assoc()) 
             $typeId = $row['lottery_id'];
 
-            echo $typeId;
+    
                  //zurag
 
             if(isset($_POST['save'])) {
                 $name = $_FILES['file']['name'];
-                echo $name;
+
 
                 $target_dir="photos/";
                 $target_file = $target_dir . basename($_FILES['file']['name']);
@@ -84,7 +84,7 @@
                     <div class="content">
                         <form method="POST" action="config.php?a=save" enctype="multipart/form-data" >
 
-                            <select style="width:10%;"class="float-left" name="select1" id="aztan">
+                            <select class="float-left" name="select1" id="aztan">
                                     <? 
 
                                         $con =  new mysqli('localhost','root','',"lottery");
@@ -112,7 +112,7 @@
 
                             
                                     <input type="hidden" name="a" value="save">
-                                    <input class="btn btn-primary text-center" style="width:15%;height:10%;" type="submit" value="SAVE" name="save" />
+                                    <input class="btn btn-primary text-center" type="submit" value="Хадгалах" name="save" />
                             
                         </form>
                         </div>

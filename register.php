@@ -41,7 +41,8 @@
                            
                        
                                 if($result = $con->query($query)) {
-                                    echo "amjilttai burtgelee";
+                                  
+                                    header("Location:admin.php");
                                 }
    
  }

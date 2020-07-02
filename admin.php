@@ -10,13 +10,32 @@
     <link href="./bootstrap-4.5.0/css/bootstrap.css" rel="stylesheet">
     <script src="./bootstrap-4.5.0/js/jquery-3.5.1.min.js"></script>
     <link rel="stylesheet" href="./style/admin.css">
- 
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenLite.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/plugins/CSSPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TimelineLite.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
     
 </head>
 <body>
 
-     
+        <script>
+           
+
+            
+
+                $(document).ready(function() {
+                $("#btn1").on("click",function() {
+             
+                    TweenMax.to("nav",1,{
+                       scaleY:1,
+                       height:'100vh'
+                   });
+                
+                });
+              });
+
+   
+        </script>
 
        
 
@@ -31,18 +50,29 @@
             <img src="./photos/tdb.png" class="img-fluid" alt="logo" />
         </div>
 
-        <div id="buttons" class="col-lg-9  col-md-12 col-sm-12 d-flex justify-content-between mt-4  text-center">
-            <button id="btn" class="btn btn-secondary dropdown-item " onclick="$('#test').load('data.php');">Дата бүртгэх</button>
-            <button id="btn" class="btn btn-secondary dropdown-item " onclick="$('#test').load('config.php');">Тохиргоо</button>
-            <button id="btn" class="btn btn-secondary dropdown-item"  onclick="$('#test').load('lottery.php');">Сугалааны нэр</button>
-            <button id="btn" class="btn btn-secondary dropdown-item"  onclick="$('#test').load('qr.php');">QR код бүртгэх</button>
-            <button id="btn" class="btn btn-secondary dropdown-item active"  onclick="$('#test').load('register.php');">Бүртгэл</button>
-        </div>
+
+            <nav class="navbar navbar-expand-md  navbar-dark">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                    </button>
+                    
+                <div class="collapse navbar-collapse ml-5" id="navbarNavDropdown" >
+                        <button id="btn1" class="btn btn-secondary dropdown-item " onclick="$('#test').load('data.php');">Дата бүртгэх</button>
+                        <button id="btn" class="btn btn-secondary dropdown-item " onclick="$('#test').load('config.php');">Тохиргоо</button>
+                        <button id="btn" class="btn btn-secondary dropdown-item"  onclick="$('#test').load('lottery.php');">Сугалааны нэр</button>
+                        <button id="btn" class="btn btn-secondary dropdown-item"  onclick="$('#test').load('qr.php');">QR код бүртгэх</button>
+                        <button id="btn-burtgel" class="btn btn-secondary dropdown-item "  onclick="$('#test').load('register.php');">Бүртгэл</button>
+                </div>
+            </nav>
+                                             
+     
 
       
 
         </div>
     </div>
+
+    
 
 
     
@@ -57,37 +87,40 @@
 
 
     <footer>
- 
+            <div class="text-center footer-title">  <h3>Холбоо барих</h3> </div>
+
         <div class="row text-center" style="display:flex;flex-decoration:column;justify-content: space-around;">
 
-            <div id="texts"  class="col-lg-6 col-md-6"> 
-                        <h2>Холбоо барих:</h2>
-                        <div style="margin-left:100px;">
-                        <p>Утас:80247030</p>
-                        <p>И-мэйл хаяг: Narmandakhboldbaatar3
-                            4@gmail.com</p>
-                        <p>Сургууль:МУИС</p>
-                        </div>
-            </div>
 
-            <div id="texts" class="col-lg-6 col-md-6"> 
-
-
-                        <h2 class="text-center">Холбоо барих:</h2>
-                                <div style="margin-left:100px;">
-                                    <p>Утас:99394044</p>
-                                    <p>И-мэйл хаяг: Anarerdene.otgoo@gmail.com</p>
-                                    <p>Сургууль:МУИС</p>
-                                </div>
-            </div>
+                            <div id="texts"  class="col-lg-6 col-md-6 col-sm-12 mt-5"> 
+                                    
+                                    
+                                        <br class="my-4">
+                                    
+                                        <p>Утас:80247030</p>
+                                        <p>И-мэйл хаяг: Narmandakhboldbaatar34@gmail.com</p>
+                                        <p>Сургууль:МУИС</p>
+                                    
+                            </div>
+                
+                            <div id="texts" class="col-lg-6 col-md-6 col-sm-12 mt-5"> 
+                                    
+                                        <br class="my-4">
+                                    
+                                        <p>Утас:99394044</p>
+                                        <p>И-мэйл хаяг: Anarerdene.otgoo@gmail.com</p>
+                                        <p>Сургууль:МУИС</p>
+                                                
+                            </div>
 
         </div>
     
             <div class="container">
-                 <div class="footer-copoyright text-dark text-center py-3" style="margin-left:150px;"> 
+                 <div class="footer-copoyright text-dark py-3"> 
                     <strong><p style="font-size:20px;">&copy; Худалдаа хөгжлийн банк, Суурь системийн хэлтэс</p></strong>
                 </div>
-            </div>
+            
+            </div> 
 
 </footer>
      <script src="./bootstrap-4.5.0/js/bootstrap.js"></script>

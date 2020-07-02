@@ -62,7 +62,7 @@
                                  }
                              
 
-                                 $link = "http://192.168.43.248/test2/qr.php?a=success&id=$hashcode";
+                                 $link = "http://192.168.43.248/test/qr.php?a=success&id=$hashcode";
                                  $urlen = urlencode($link);
                                 
 
@@ -71,7 +71,7 @@
                               
                                  @$rawImage = file_get_contents($urlencode);
                                  if($rawImage) {
-                                     file_put_contents("qr/$register.jpg",$rawImage);
+                                     file_put_contents("qr/$register$type.jpg",$rawImage);
                                     
                                  }
 
@@ -88,16 +88,13 @@
         
 
         <div class="row">
-                
-              
-
                 <div style="background-color:#white"class="col-md-12 col-lg-12 text-center  p-5 ">
 
                                 <h2 class="text-center" style="color:#0095DA;">QR code</h2>
 
                                     <br my="4">
                                 <form method="POST" class="d-flex flex-column  align-items-center " action="qr.php">
-                                            <select style="width:10%;"class="text-center" name="select1" id="aztan">
+                                            <select class="text-center" name="select1" id="aztan">
 
                                                                 <? 
                                                                     $con =  new mysqli('localhost','root','',"lottery");
@@ -112,21 +109,8 @@
 
                                         <input class="text-center w-10 m-5 btn btn-primary border-5px" type="submit"  name="save" value="Хадгалах">            
                                 </form>
-
-                             
-                         
                  </div>
-                    
-
         </div>
-
-      
-                
-    
-        
-       
-    
-    
 
 </body>
 </html>

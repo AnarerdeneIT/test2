@@ -1,5 +1,6 @@
 html body {
     background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+    font-family: Arial, Helvetica, sans-serif,'Times New Roman', Times, serif;
 }
 .header a {
     text-decoration:none;
@@ -7,31 +8,62 @@ html body {
     font-size:2rem;
     border-style:groove;
 }
-
-
-
 .contain {
+
+    
     margin-top:50px;
     display: flex;
     justify-content:space-around;
 
 }
 .dorwoljin {
+    display: flex;
     width:10%;
     height: 150px;
-    border:1px solid #2d6f7a;
+    border:2px solid #fff;
     font-weight: bold;
     font-size:60px;  
     text-align: center;
     transition:1s ease-out;
-    color:#2d6f7a;  
-   
+    color :#083261; 
+    align-items: center;
+    justify-content: center;
 }
 
 .dorwoljin p {
+
         display:none;
         padding-top:10px;
 }
  
-
-
+.menu {
+    background-color: white;
+}
+.menu a {
+    background-color: #0095da;
+    margin-top: 10px;
+    color: white;
+}
+.pic select{
+    width:15%;
+    justify-content: right;
+}
+.pic input[type=submit] {
+ background-color: #083261;
+ color: white;
+ width: 20%;
+ font-size: 18px;
+ margin:20px auto;
+}
+.menu img {
+    height:100;
+    width:100px;
+}
+.pic img {
+    width:400;
+    height:400px;
+    margin-top:50px;
+}
+.lot h1{
+    color: #0095da;
+}
