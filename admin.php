@@ -7,7 +7,7 @@
     <title></title>
 
     <link href="./bootstrap-4.5.0/css/bootstrap.min.css" rel="stylesheet">
-    <link href="./bootstrap-4.5.0/css/bootstrap.css" rel="stylesheet">
+    <link href="./bootstrap-4.5.0/css/bootstrap.css" rel="stylesheet"> 
     <script src="./bootstrap-4.5.0/js/jquery-3.5.1.min.js"></script>
     <link rel="stylesheet" href="./style/admin.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenLite.min.js"></script>
@@ -20,24 +20,45 @@
 
         <script>
            
-
+                
             
 
                 $(document).ready(function() {
-                $("#btn1").on("click",function() {
-             
-                    TweenMax.to("nav",1,{
-                       scaleY:1,
-                       height:'100vh'
-                   });
-                
-                });
+            
+                   TweenMax.to("#nav",1,{
+                    opacity:1,
+                       x:0,
+                       ease: "power2.in",
+                   })
+
+                   TweenMax.to("#test.container",1,{
+                    opacity:1,
+                         y: 0,
+                         duration: 2.5,
+                         delay:1,
+                          ease: "power2.in",
+                   })
+
+                   TweenMax.to("footer",1,{
+                    opacity:1,
+                    delay:2,
+                    y: 0,
+                    duration: 2.5,
+                    ease: "power2.in",
+                    })
+                   
+            
               });
+
+              
 
    
         </script>
 
-       
+    <style>
+     
+              
+    </style>
 
 
 
@@ -47,7 +68,7 @@
 
         <div class="row col-12">
         <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12" >
-            <img src="./photos/tdb.png" class="img-fluid" alt="logo" />
+            <img id="logo" src="./photos/tdbW.png" class="img-fluid" alt="logo" />
         </div>
 
 
@@ -79,38 +100,47 @@
 
 
 
-    <div class="container w-100 h-100" id="test">
+    <div class="container w-80 h-80" id="test">
         <br class="my-4">
-        <? include_once("./data.php"); ?>
+              <div id="load-items">
+              <? include_once("./data.php"); ?>
+              </div>
     </div>
 
 
 
     <footer>
-            <div class="text-center footer-title">  <h3>Холбоо барих</h3> </div>
+            <div id="contact" class="text-center footer-title">  <h3>Холбоо барих</h3> </div>
 
         <div class="row text-center" style="display:flex;flex-decoration:column;justify-content: space-around;">
 
 
-                            <div id="texts"  class="col-lg-6 col-md-6 col-sm-12 mt-5"> 
+                            <div id="texts"  class="col-lg-6 col-md-6 col-sm-12 mt-5" style="text-align:left ; "> 
                                     
                                     
-                                        <br class="my-4">
                                     
-                                        <p>Утас:80247030</p>
-                                        <p>И-мэйл хаяг: Narmandakhboldbaatar34@gmail.com</p>
-                                        <p>Сургууль:МУИС</p>
+                                        
+                                    
+                                   <div style="text-align:center;">
+
+                                   <p>Утас:80247030</p>
+                                    <p>И-мэйл хаяг: Narmandakhboldbaatar34@gmail.com</p>
+                                    <p>Сургууль:МУИС</p>
+
+
+                                   </div>
+                                
                                     
                             </div>
                 
-                            <div id="texts" class="col-lg-6 col-md-6 col-sm-12 mt-5"> 
+                            <div id="texts" class="col-lg-6 col-md-6 col-sm-12 mt-5" style="text-align:left ; "> 
                                     
-                                        <br class="my-4">
+                            <div style="text-align:center;aligns-items:start;">
                                     
                                         <p>Утас:99394044</p>
                                         <p>И-мэйл хаяг: Anarerdene.otgoo@gmail.com</p>
                                         <p>Сургууль:МУИС</p>
-                                                
+                                        </div>
                             </div>
 
         </div>

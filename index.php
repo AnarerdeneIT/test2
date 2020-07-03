@@ -12,15 +12,7 @@
 
 <link rel="stylesheet" href="./style/index.css">
 <script src="./bootstrap-4.5.0/js/jquery-3.5.1.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.4/gsap.min.js"></script>
 
-<script>
-
-    
-           
-
-
-</script>
 <body>
 <? 
 $con =  new mysqli('localhost','root','',"lottery");
@@ -193,7 +185,7 @@ if(!$con) trigger_error(mysqli_connect_error());
                 <main>
                 </main>
                 <input type="hidden" name="a" value="search">
-                 <input class="btn "  type="submit" value="Хайх" name="search" />
+                 <input class="btn"  type="submit" value="Хайх" name="search" />
         
             </div>
  </form>

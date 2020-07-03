@@ -1,5 +1,7 @@
 html body {
-    background-image: url()
+    background-image: url("../photos/pexels3.jpeg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
 }
 
 #buttons button{
@@ -9,24 +11,37 @@ html body {
 }
 
 #nav {
-background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+/* background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%); */
+transform: translateX(-100%);
+opacity:0;
 }
 
-
+#test {
+    margin-bottom:100px;
+}
 #navbarNavDropdown button:hover {
-    color:black;
+    color: black;
     border-bottom:1px solid aqua;
     transform: scale(1.1);
     transition: 0.3s ease-in-out;
 }
+#navbarNavDropdown button {
+    color: white;
+}
+#test.container {
+    transform: translateY(500px);
+    opacity:0;
+}
 
 footer {
     background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+    transform: translateY(500px);
+    opacity:0;
 }
 
 #texts p {
     font-size:18px;
-    color:black;
+    color:white;
 }
 
 
@@ -35,6 +50,10 @@ footer {
     color:#0095da;
 }
 #nav img {
-    background-color:white;
+    height: 60px;
     margin-top:5px;
+}
+
+#contact {
+    color: white;
 }

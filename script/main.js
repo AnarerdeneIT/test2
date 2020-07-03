@@ -11,7 +11,6 @@ document.addEventListener("DOMContentLoaded", () => {
   val--;
 
   var k = array.length - 1;
-  console.log(k);
   var timecount = 0;
   if (k != -1) $("#container").hide();
   $("#ylagch").hide();
@@ -22,7 +21,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }, (k - j) * 1000);
     if (j == 0) timecount = (k - j) * 1000 + 1000;
   }
-  console.log(timecount);
   if (k != -1) {
     setTimeout(() => {
       $("#container").show();

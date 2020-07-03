@@ -1,3 +1,38 @@
+
+<? 
+ $con =  new mysqli('localhost','root','','lottery');
+ if(!$con) trigger_error(mysqli_connect_error());
+
+
+
+if(isset($_REQUEST['name'])) {
+    $name =$_REQUEST['name'];
+    addStatus($name);
+    exit(json_encode(["success" => "success"]));
+}
+
+
+
+function addStatus($name) {
+  global $con;
+
+    $insertSql = "
+    INSERT INTO lottery_name ( lottery_name,status)
+     VALUES ('$name','1')";
+
+    if($con->query($insertSql) === true) {
+       
+    }
+    else {
+        echo "Алдаа гарлаа";   
+    }
+    $con->close();
+
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,52 +52,45 @@
         border: 1px solid #007bff;
     }
 </style>
-<body>
 
-<? 
-   switch(@$_GET['a']) {
-    case "addStatus" : addStatus(); break;
-    default : break;
-  
-    }   
 
-function addStatus() {
-   
-    $con =  new mysqli('localhost','root','','lottery');
+<script>
+function saveLottery() {
 
-    if(!$con) trigger_error(mysqli_connect_error());
-
-    $insertSql = "
-    INSERT INTO lottery_name ( lottery_name,status)
-     VALUES ('".@$_GET['name']."','1')";
-
-    if($con->query($insertSql) === true) {
-        header("Location:index.php");
+    $.ajax({
+        url:"lottery.php",
+        type:"GET",
+        data : { 
+            "name" : $("#lottery_name").val()
+        },
+        success:(data)=>{
+               alert("amjilttai");
     }
-    else {
-        echo "aldaa";   
-    }
-    $con->close();
+        
+    })
 
 
-    exit;
 }
 
+    
+</script>
 
 
-?>
+<body>
+
+
     
 
     <div class="container text-center">
-                         <form class="" id="forms" action="lottery.php?a=addStatus">
+                         <form>
                                     <div class="col-12">
                                     <h3 class="page-header" style="color:#0095DA">Сугалааны нэр</h3>
                                     </div>
                                 
                                     <div class="col-12 mt-3">
                                             <input type="hidden" name="a" value="addStatus"/>
-                                            <input style="width:20%;height:35px;" type="text" name="name" placeholder=""/> 
-                                            <input class="btn"  value="Хадгалах"type="submit"/> 
+                                            <input  id="lottery_name" type="text" name="name" placeholder=""/> 
+                                            <input style="margin-bottom:3px;height:30px;padding:2px;" class="btn btn-primary" onclick="saveLottery()" value="Хадгалах" type="button"/> 
                                     </div>
                         </form>
     </div>
