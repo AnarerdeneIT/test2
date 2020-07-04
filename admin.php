@@ -78,9 +78,9 @@
                     </button>
                     
                 <div class="collapse navbar-collapse ml-5" id="navbarNavDropdown" >
+                        <button id="main-btn" class="btn btn-secondary dropdown-item "><a  href="http://localhost/test/index.php">Эхлэл</a></button>
                         <button id="btn1" class="btn btn-secondary dropdown-item " onclick="$('#test').load('data.php');">Дата бүртгэх</button>
                         <button id="btn" class="btn btn-secondary dropdown-item " onclick="$('#test').load('config.php');">Тохиргоо</button>
-                        <button id="btn" class="btn btn-secondary dropdown-item"  onclick="$('#test').load('lottery.php');">Сугалааны нэр</button>
                         <button id="btn" class="btn btn-secondary dropdown-item"  onclick="$('#test').load('qr.php');">QR код бүртгэх</button>
                         <button id="btn-burtgel" class="btn btn-secondary dropdown-item "  onclick="$('#test').load('register.php');">Бүртгэл</button>
                 </div>

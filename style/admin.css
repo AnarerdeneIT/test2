@@ -1,7 +1,5 @@
 html body {
-    background-image: url("../photos/pexels3.jpeg");
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
+
 }
 
 #buttons button{
@@ -11,7 +9,7 @@ html body {
 }
 
 #nav {
-/* background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%); */
+background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
 transform: translateX(-100%);
 opacity:0;
 }
@@ -56,4 +54,12 @@ footer {
 
 #contact {
     color: white;
+}
+#main-btn a{
+    text-decoration: none;
+    font-size:16px;
+    color:white;
+}
+  #main-btn a:hover {
+    color:black;
 }

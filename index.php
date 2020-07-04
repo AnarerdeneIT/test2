@@ -53,28 +53,61 @@ if(!$con) trigger_error(mysqli_connect_error());
                         while($row = $result->fetch_assoc()) {
                            $id = $row['lottery_id'];
                          }
+            
+
+            $countQuery=  "SELECT count(winner) FROM `customer` WHERE winner = 1 and cust_type = $id";
 
 
+            $result = $con->query($countQuery);
+            if($row = $result->fetch_assoc()) {
+                $count = $row['count(winner)'];
+            }
+            echo $count;
 
-                $query = "
-                        select lottery_num
-                        from customer
-                        where cust_type = $id and winner = 0
-                        order by RAND()
-                        limit 1
-                ";
-
-           
-
-            $result2 = $con->query($query);
+         $nameSql = "
+         select count(c.winner),l.winner
+         from customer c 
+         left join lottery_config l 
+         on c.Cust_type = l.id
+         where c.winner = 1";
 
 
-            if($row = $result2->fetch_assoc()) {
-                $randomToo = $row['lottery_num'];
-           
-                 }
+        $result = $con->query($nameSql);
+        if($row = $result->fetch_assoc()) {
+            $countWinner =  $row['count(c.winner)'];
+            $totalWinner = $row['winner'];
+        
+            if($totalWinner > $countWinner) {
+                if($count > 0) {
+                    $query = "
+                    select lottery_num
+                    from customer
+                    where cust_type = $id and winner = 0
+                    order by RAND()
+                    limit 1
+                     ";
+                    $result2 = $con->query($query);
+    
+    
+                    if($row = $result2->fetch_assoc()) {
+                        $randomToo = $row['lottery_num'];
+                        }
+    
+                        $list = str_split((string)$randomToo);
 
-                $list = str_split((string)$randomToo);
+                       
+                }
+                else {
+                    echo "<h2 class='text-center'>Сугалаа явуулах боломжгүй байна.</h2>"; 
+                }
+            }
+            else {
+                echo "<h2 class='text-center'>Сугалаа явуулах боломжгүй байна.</h2>"; 
+            }
+        }
+
+
+             
 
     
     } 

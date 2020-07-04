@@ -40,19 +40,19 @@ function addStatus($rd,$typename) {
         if($row = $resutcust->fetch_assoc()) 
         $custid = $row['customer_id'];
     
+        $min = "1";
+        $max = "";
         
-            
-        switch($oron){
-            case 7:$utga = rand(1000000,9999999) . "<br>"; break;
-            case 8:$utga  = rand(10000000,99999999) . "<br>"; break;
-            case 10:$utga = rand(1000000000,9999999999) . "<br>"; break;
-            default:$utga = rand(0,10);
+        for($i=0;$i<$oron;$i++) {
+            if($i !=0)
+            $min.= "0";
+            $max .= "9";
         }
+        $utga = rand(intval($min),intval($max));
+       
 
 
      
-
-
                 $insertSql = "
                 INSERT INTO customer ( Cust_type,lottery_num,status,insert_date,winner,cust_id)
                 VALUES ($typeId,'$utga',1,'$date',0,$custid)";
@@ -108,7 +108,6 @@ if(isset($_REQUEST['regid'])){
             data: { "regid": $("#regid").val(), "type": $("#lottery_type").val()
             },
             success:(data)=>{
-           
                alert("Суглааг амжилттай бүртгэлээ");
             }
         });
@@ -117,20 +116,20 @@ if(isset($_REQUEST['regid'])){
 
     $(()=>{
         $("#showdata").click(function () {
-        var count=2;
+            $("#table-items").toggle();
         $.ajax({
             url:"table.php",
             type:"GET",
-            data : {
-                count:count+2
-            },
             success:(data)=> {
                 $("#table-items").html(data);
             }
         });
     });
-    })
-        
+    });
+
+
+
+  
     
     </script>
 </head>
@@ -191,58 +190,15 @@ if(isset($_REQUEST['regid'])){
     </div>
 
 
-    <div class="container jumbotron bg-success">
-                <div class="row">
-                            <div class="col-12">
-                            
+    <div class="container jumbotron bg-white shadow-lg p-3 mb-5 bg-white rounded">
+                                <button id="showdata"  style="position:relative;top:0%;left:0;"class="btn btn-primary"> Дата харах</button>       
                                 <div id="table-items">
-                                
-                                
-                                
-                                </div>
-                                <button id="showdata" class="btn btn-primary"> Дата харах</button>
-                            </div>
-                                                                
+                                </div>                               
                 </div>
-    
+
     </div>
 
-    <div class="page">
-    <?php
-if (isset($_GET['pageno'])) {
-    $pageno = $_GET['pageno'];
-} else {
-    $pageno = 1;
-}
-$no_of_records_per_page = 10;
-$offset = ($pageno-1) * $no_of_records_per_page;
-
-$conn =  new mysqli('localhost','root','','lottery');
-if(!$con) trigger_error(mysqli_connect_error());
-
-
-
-$total_pages = ceil(100 /10);
-
-$sql = "SELECT * FROM customer_form LIMIT $no_of_records_per_page";
-$res_data = mysqli_query($conn,$sql);
-while($row = mysqli_fetch_array($res_data)){
-    print_r($row);
-}
-mysqli_close($conn);
-?>
-<ul class="pagination">
-<li><a href="?pageno=1">First</a></li>
-<li class="<?php if($pageno <= 1){ echo 'disabled'; } ?>">
-    <a href="<?php if($pageno <= 1){ echo '#'; } else { echo "?pageno=".($pageno - 1); } ?>">Prev</a>
-</li>
-<li class="<?php if($pageno >= $total_pages){ echo 'disabled'; } ?>">
-    <a href="<?php if($pageno >= $total_pages){ echo '#'; } else { echo "?pageno=".($pageno + 1); } ?>">Next</a>
-</li>
-<li><a href="?pageno=<?php echo $total_pages; ?>">Last</a></li>
-</ul>
-    </div>
-
+   
 
 
 

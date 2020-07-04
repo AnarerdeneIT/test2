@@ -32,3 +32,8 @@ input[type= file] {
     color:black;
     width: 100%;
 }
+
+
+#hidden {
+    display:hidden;
+}

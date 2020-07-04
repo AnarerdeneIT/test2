@@ -44,7 +44,7 @@
                             $type = $_POST['select1'];
                             $query = "select * from customer_form";
                             $result = $con->query($query);
-
+                            $date = date("Y-m-d H:i:s"); 
                             
                             while($row = $result->fetch_assoc()){
                                 $register =   $row['customer_rd'];
@@ -55,14 +55,14 @@
                                  $id =  $row['customer_id'];  
                                
                         
-                                 $query = "insert into qr_table (cust_id,type,hashcode,status) VALUES ($id ,'$type','$hashcode',0)";
+                                 $query = "insert into qr_table (cust_id,type,hashcode,status,date) VALUES ($id ,'$type','$hashcode',0,'$date')";
                               
                             
                                  if($con->query($query) === true){
                                  }
                              
 
-                                 $link = "http://192.168.43.248/test/qr.php?a=success&id=$hashcode";
+                                 $link = "http://192.168.43.248 /test/qr.php?a=success&id=$hashcode";
                                  $urlen = urlencode($link);
                                 
 
@@ -72,7 +72,6 @@
                                  @$rawImage = file_get_contents($urlencode);
                                  if($rawImage) {
                                      file_put_contents("qr/$register$type.jpg",$rawImage);
-                                    
                                  }
 
                             }
