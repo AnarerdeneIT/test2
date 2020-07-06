@@ -181,7 +181,7 @@ if(isset($_POST['id'])) {
                                         contentType: false,
                                         data: formData,
                                         success:(data)=>{
-                                            console.log(data);
+                                         
                                         alert("Амжилттай тохиргоог өөрчиллөө");
                                         $("#table-items").load("table.config.php");
                                         }
