@@ -5,15 +5,14 @@
             from customer_form f 
             left join customer c 
             on f.customer_id = c.cust_id 
-            where c.winner = 0
            "
             ;
-// where c.winner = 0
+
             $result = $con->query($query);
 
             $output='';
            
-            $output .= '<table class="table table-dark">
+            $output .= '<div><table class="table table-dark">
             <thead>
               <tr>
                 <th width="10%" scope="col">Нэр</th>
@@ -22,7 +21,6 @@
                 <th width="15%" scope="col">Хаяг</th>
                 <th width="20%" scope="col">Сугалааны дугаар</th>
                 <th width="25%" scope="col">Бүртгүүлсэн өдөр</th>
-                <th width="30%  scope="col">Засах</th>
                 <th width="30%  scope="col">Устгах</th>
               </tr>
             </thead>
@@ -40,15 +38,14 @@
                                 <td>'.$row['hayg'].'</td>
                                 <td>'.$row['lottery_num'].'</td>
                                 <td>'.$row['insert_date'].'</td>
-                                <td><button class="btn btn-success" id="btnedit" dataid='.$row['dataid'].'>Засах</button></td>
-                                <td><button class="btn btn-danger" id="btndelete" dataid='.$row['dataid'].'>Устгах</button></td>
+                                <td><button class="btn btn-danger" id="btndelete" onclick="deleteData('.$row['dataid'].')">Устгах</button></td>
                            </tr>';
              
 
               
             }
             $output.='</tbody>
-            </table>';
+            </table></div>';
           
             echo $output;
 

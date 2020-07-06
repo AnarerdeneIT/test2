@@ -82,6 +82,33 @@ if(isset($_REQUEST['regid'])){
    exit(json_encode(["success" => "success"]));
 
 }
+if(isset($_REQUEST['id'])) {
+    $id=$_POST['id'];
+   
+
+    $selectQuery = "
+    select f.customer_id,f.customer_lottery_num
+    from customer c
+    left join customer_form f
+    on  c.cust_id = f.customer_id
+    where c.dataid = $id
+    ";
+    $result =  $con->query($selectQuery);
+    print_r($result);
+    if($row = $result->fetch_assoc()) {
+        $hereglegchId = $row['customer_id'];
+
+        $too = $row['customer_lottery_num'];
+        $too=$too-1;
+        $con->query("update customer_form set customer_lottery_num = $too where customer_id =$hereglegchId ");
+    }
+
+    $deleteQuery = "delete from customer where dataid = $id";
+    $con->query($deleteQuery);
+
+ 
+ 
+}
 ?>
 
 <!DOCTYPE html>
@@ -102,6 +129,7 @@ if(isset($_REQUEST['regid'])){
     <script>
 
     function hadgalah() {
+        
             $.ajax({
             url:"data.php",
             type:"GET",
@@ -109,23 +137,32 @@ if(isset($_REQUEST['regid'])){
             },
             success:(data)=>{
                alert("Суглааг амжилттай бүртгэлээ");
+               $("#table-items").load("table.php");
             }
         });
     }
 
 
     $(()=>{
-        $("#showdata").click(function () {
-            $("#table-items").toggle();
+        $("#table-items").load("table.php");
+    });
+    function deleteData(id) {
+         
+    if(confirm("Та энэхүү дата-г устгахдаа итгэлтэй байна уу?")) {
         $.ajax({
-            url:"table.php",
-            type:"GET",
+            url:"data.php",
+            type:"POST",
+            data : {id : id},
             success:(data)=> {
-                $("#table-items").html(data);
+          
+                alert("Амжилттай устгалаа");
+                $("#table-items").load("table.php");
+              
             }
         });
-    });
-    });
+    }
+        
+    }
 
 
 
@@ -190,10 +227,15 @@ if(isset($_REQUEST['regid'])){
     </div>
 
 
-    <div class="container jumbotron bg-white shadow-lg p-3 mb-5 bg-white rounded">
-                                <button id="showdata"  style="position:relative;top:0%;left:0;"class="btn btn-primary"> Дата харах</button>       
+    <div class="container jumbotron  shadow-lg p-3 mb-5 rounded">
+                <div class="row">
+                            <div class="col-12">
+                            
                                 <div id="table-items">
-                                </div>                               
+
+                                </div>
+                                
+                            </div>                                        
                 </div>
 
     </div>
