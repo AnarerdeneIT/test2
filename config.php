@@ -133,7 +133,7 @@ if(isset($_POST['id'])) {
             contentType: false,
             data: formData,
             success:(data)=>{
-            
+                $("#table-items").load("table.config.php");
              alert("Амжилттай тохиргоог өөрчиллөө");
                 
             }
@@ -232,7 +232,7 @@ if(isset($_POST['id'])) {
                         <form method="POST"  enctype="multipart/form-data" >
 
                                               
-                                        <h2 class=" text-primary text-center">Суглааны нэр</h2>   
+                                        <h2 class=" text-primary text-center">Сугалааны нэр</h2>   
                         
                             <input  id="lottery_name" type="text" name="name" placeholder="Нэр"/> 
             

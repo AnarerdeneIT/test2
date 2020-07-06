@@ -55,28 +55,29 @@ if(!$con) trigger_error(mysqli_connect_error());
                          }
             
 
-            $countQuery=  "SELECT count(winner) FROM `customer` WHERE winner = 1 and cust_type = $id";
+            $countQuery=  "SELECT count(winner) FROM `customer` WHERE winner = 0 and cust_type = $id";
 
 
             $result = $con->query($countQuery);
             if($row = $result->fetch_assoc()) {
                 $count = $row['count(winner)'];
             }
-            echo $count;
-
+            
          $nameSql = "
-         select count(c.winner),l.winner
-         from customer c 
-         left join lottery_config l 
+         select count(c.winner), l.winner
+         from lottery_config l 
+         left join  customer c 
          on c.Cust_type = l.id
-         where c.winner = 1";
+         where c.winner = 0 and l.id = $id
+        ";
 
 
         $result = $con->query($nameSql);
         if($row = $result->fetch_assoc()) {
             $countWinner =  $row['count(c.winner)'];
             $totalWinner = $row['winner'];
-        
+
+     
             if($totalWinner > $countWinner) {
                 if($count > 0) {
                     $query = "
