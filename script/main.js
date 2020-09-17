@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
   var val = document.getElementById("contain").childElementCount;
-
   var array = [];
   for (var i = 0; i < val; i++) {
     var obj = document.getElementById("dom" + i);
@@ -9,12 +8,10 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   array.reverse();
   val--;
-
   var k = array.length - 1;
   var timecount = 0;
   if (k != -1) $("#container").hide();
   $("#ylagch").hide();
-
   for (let j = k; j >= 0; j--) {
     setTimeout(() => {
       animate(j);
@@ -27,7 +24,6 @@ document.addEventListener("DOMContentLoaded", () => {
       $("#ylagch").show();
     }, timecount);
   }
-
   function animate(value) {
     var result = 0;
     var time = setInterval(function () {

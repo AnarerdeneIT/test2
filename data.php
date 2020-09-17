@@ -113,6 +113,7 @@ if(isset($_REQUEST['id'])) {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -122,133 +123,129 @@ if(isset($_REQUEST['id'])) {
     <link href="./bootstrap-4.5.0/css/bootstrap.css" rel="stylesheet">
     <script src="./bootstrap-4.5.0/js/jquery-3.5.1.min.js"></script>
     <link rel="stylesheet" href="docsupport/style.css">
-  <link rel="stylesheet" href="docsupport/prism.css">
-  <link rel="stylesheet" href="chosen.css">
+    <link rel="stylesheet" href="docsupport/prism.css">
+    <link rel="stylesheet" href="chosen.css">
 
     <title>Data</title>
     <script>
+        function hadgalah() {
 
-    function hadgalah() {
-        
             $.ajax({
-            url:"data.php",
-            type:"GET",
-            data: { "regid": $("#regid").val(), "type": $("#lottery_type").val()
-            },
-            success:(data)=>{
-               alert("Суглааг амжилттай бүртгэлээ");
-               $("#table-items").load("table.php");
-            }
+                url: "data.php",
+                type: "GET",
+                data: {
+                    "regid": $("#regid").val(),
+                    "type": $("#lottery_type").val()
+                },
+                success: (data) => {
+                    alert("Суглааг амжилттай бүртгэлээ");
+                    $("#table-items").load("table.php");
+                }
+            });
+        }
+
+
+        $(() => {
+            $("#table-items").load("table.php");
         });
-    }
 
+        function deleteData(id) {
 
-    $(()=>{
-        $("#table-items").load("table.php");
-    });
-    function deleteData(id) {
-         
-    if(confirm("Та энэхүү дата-г устгахдаа итгэлтэй байна уу?")) {
-        $.ajax({
-            url:"data.php",
-            type:"POST",
-            data : {id : id},
-            success:(data)=> {
-          
-                alert("Амжилттай устгалаа");
-                $("#table-items").load("table.php");
-              
+            if (confirm("Та энэхүү дата-г устгахдаа итгэлтэй байна уу?")) {
+                $.ajax({
+                    url: "data.php",
+                    type: "POST",
+                    data: {
+                        id: id
+                    },
+                    success: (data) => {
+
+                        alert("Амжилттай устгалаа");
+                        $("#table-items").load("table.php");
+
+                    }
+                });
             }
-        });
-    }
-        
-    }
 
-
-
-  
-    
+        }
     </script>
 </head>
+
 <body>
 
-    <div id="container-mid" class="container text-center shadow-lg p-3  bg-white rounded" > 
-                         <form class=" col-12"  id="forms" >
-                             <br>
-                                <h3>Сугалааны нэрийг оруулна уу!</h3>
-                                <br>
-                                
-                                <div class="side-by-side clearfix">
+    <div id="container-mid" class="container text-center shadow-lg p-3  bg-white rounded" style="margin-top:-20px;">
+        <form class=" col-12" id="forms">
+            <br>
+            <h3>Сугалааны нэрийг оруулна уу!</h3>
+            <br>
 
-                        <div  id="dug" class="text-left">
-                               <p><strong>Регистерийн дугаар</strong></p>
-                               <p id="p"></p>
-                        
-                        <select data-placeholder="Choose a Country..." id="regid" name="select" class="chosen-select" tabindex="2">
-                                            <? 
+            <div class="side-by-side clearfix">
 
-                                                    $con =  new mysqli('localhost','root','',"lottery");
-                                                    if(!$con) trigger_error(mysqli_connect_error());
+                <div id="dug" class="text-left">
+                    <p><strong>Регистерийн дугаар</strong></p>
+                    <p id="p"></p>
+
+                    <select data-placeholder="Choose a Country..." id="regid" name="select" class="chosen-select" tabindex="2">
+                        <? 
+
                                                     $query = "SELECT customer_rd from customer_form ";
                                                         $result = $con->query($query);
                                                         while($row = $result->fetch_assoc()) {
                                                         echo "<option value=" .$row['customer_rd']. ">" .$row['customer_rd']. "</option>";
                                                         }
-                                            ?>   
-                        </select>
-                    
-                        </div>
-                    </div>  
+                                            ?>
+                    </select>
 
-                                         <br>
+                </div>
+            </div>
 
-                                
-                                    <div class="input">
-                                    <select class="float-left" id="lottery_type" name="select1" id="aztan">
-                                                      <? 
+            <br>
 
-                                                            $con =  new mysqli('localhost','root','',"lottery");
-                                                            if(!$con) trigger_error(mysqli_connect_error());
+
+            <div class="input">
+                <select class="float-left" id="lottery_type" name="select1" id="aztan">
+                    <? 
+
                                                                         $selectSql = "SELECT * from lottery_name WHERE status = 1";
                                                                 $result = $con->query($selectSql);
                                                                     while($row = $result->fetch_assoc()) {
                                                                 echo "<option value=" .$row['lottery_name']. ">" .$row['lottery_name']. "</option>";
                                                                 }
-                                                    ?>      
-                                    </select> 
+                                                    ?>
+                </select>
 
 
 
-                                            <input type="hidden" name="a" value="addStatus"/>
-                                            <input  type="button" onclick="hadgalah()" value ="Бүртгэх"/> 
-                                    </div>
-                                    <br>
-                        </form>
+                <input type="hidden" name="a" value="addStatus" />
+                <input type="button" onclick="hadgalah()" value="Бүртгэх" />
+            </div>
+            <br>
+        </form>
     </div>
 
 
     <div class="container jumbotron  shadow-lg p-3 mb-5 rounded">
-                <div class="row">
-                            <div class="col-12">
-                            
-                                <div id="table-items">
+        <div class="row">
+            <div class="col-12" style="background-color:#0095da">
 
-                                </div>
-                                
-                            </div>                                        
+                <div id="table-items">
+
                 </div>
+
+            </div>
+        </div>
 
     </div>
 
-   
 
 
 
-    
-<script src="chosen.jquery.js" type="text/javascript"></script>
+
+
+    <script src="chosen.jquery.js" type="text/javascript"></script>
 
     <script src="docsupport/prism.js" type="text/javascript" charset="utf-8"></script>
     <script src="docsupport/init.js" type="text/javascript" charset="utf-8"></script>
 </body>
 
-</html>     
+</html>

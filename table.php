@@ -3,7 +3,7 @@
             if(!$con) trigger_error(mysqli_connect_error());
             $query = "select c.dataid,f.customer_name,f.customer_rd,f.phone,f.hayg,c.lottery_num,insert_date
             from customer_form f 
-            left join customer c 
+            right join customer c 
             on f.customer_id = c.cust_id 
            "
             ;
@@ -12,7 +12,7 @@
 
             $output='';
            
-            $output .= '<div><table class="table table-dark">
+            $output .= '<div><table class="table" style="color:white;">
             <thead>
               <tr>
                 <th width="10%" scope="col">Нэр</th>

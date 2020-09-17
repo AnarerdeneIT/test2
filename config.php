@@ -97,6 +97,7 @@ if(isset($_POST['id'])) {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -108,59 +109,58 @@ if(isset($_POST['id'])) {
 
     <script src="./bootstrap-4.5.0/js/jquery-3.5.1.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
 
 <body>
 
-<script>
-
-   function saveConfig() {
-    var file_data = $('#img-file').prop('files')[0];
-
-
-    var formData = new FormData();
-  formData.append('file', file_data);
-  formData.append('aztan', $("#aztan").val());
-  formData.append('oron', $("#oron").val());
-  formData.append('lottery_name', $("#lottery_name").val());
-        $.ajax({
-            url: "config.php",
-            type:"POST",
-            dataType: 'json',
-            cache : false,
-            processData: false,
-            contentType: false,
-            data: formData,
-            success:(data)=>{
-                $("#table-items").load("table.config.php");
-             alert("Амжилттай тохиргоог өөрчиллөө");
-                
-            }
-        })
-    }
+    <script>
+        function saveConfig() {
+            var file_data = $('#img-file').prop('files')[0];
 
 
-    $(()=>{
-        
-        $("#table-items").load("table.config.php");
+            var formData = new FormData();
+            formData.append('file', file_data);
+            formData.append('aztan', $("#aztan").val());
+            formData.append('oron', $("#oron").val());
+            formData.append('lottery_name', $("#lottery_name").val());
+            $.ajax({
+                url: "config.php",
+                type: "POST",
+                dataType: 'json',
+                cache: false,
+                processData: false,
+                contentType: false,
+                data: formData,
+                success: (data) => {
+                    $("#table-items").load("table.config.php");
+                    alert("Амжилттай тохиргоог өөрчиллөө");
 
-    });
+                }
+            })
+        }
 
 
-    function editData(id) {
-        $("#dialog").load("form.php").dialog({
-            
-            maxWidth:600,
-            maxHeight: 500,
-            width: 400,
-            height: 500,
-            modal:true,
-            resizable: false,
-            buttons: [
-                {
-                text: "Хадгалах",
-                click: function() {
+        $(() => {
+
+            $("#table-items").load("table.config.php");
+
+        });
+
+
+        function editData(id) {
+            $("#dialog").load("form.php").dialog({
+
+                maxWidth: 600,
+                maxHeight: 500,
+                width: 400,
+                height: 500,
+                modal: true,
+                resizable: false,
+                buttons: [{
+                        text: "Хадгалах",
+                        style: "color:#0095da;",
+                        click: function() {
                             var file_data = $('#new_img-file').prop('files')[0];
                             var formData = new FormData();
 
@@ -171,113 +171,116 @@ if(isset($_POST['id'])) {
                             formData.append('lottery_name', $("#new_name").val());
                             formData.append('id', id);
 
-                           
-                                    $.ajax({
-                                        url: "form.php",
-                                        type:"POST",
-                                        dataType: 'json',
-                                        cache : false,
-                                        processData: false,
-                                        contentType: false,
-                                        data: formData,
-                                        success:(data)=>{
-                                         
-                                        alert("Амжилттай тохиргоог өөрчиллөө");
-                                        $("#table-items").load("table.config.php");
-                                        }
-                                    });
-                                    $(this).dialog("close");
+
+                            $.ajax({
+                                url: "form.php",
+                                type: "POST",
+                                dataType: 'json',
+                                cache: false,
+                                processData: false,
+                                contentType: false,
+                                data: formData,
+                                success: (data) => {
+
+                                    alert("Амжилттай тохиргоог өөрчиллөө");
+                                    $("#table-items").load("table.config.php");
+                                }
+                            });
+                            $(this).dialog("close");
                         }
-                      
-                },
-                {
-                    text:"Цуцлах",
-                    click:function (){
-                        $( this ).dialog("close");
+
+                    },
+                    {
+                        text: "Цуцлах",
+                        style: "color:#0095da",
+                        click: function() {
+                            $(this).dialog("close");
+                        }
                     }
-                } 
-            ]
-        });
+                ]
+            });
 
 
 
 
-      
-     }
 
-    function deleteData(id) {
+        }
 
-        console.log(id);
-       if(confirm("Та энэхүү дата-г устгахдаа итгэлтэй байна уу?")) {
-           
-       }
+        function deleteData(id) {
 
-
-        $.ajax({
-            url:"config.php",
-            type:"POST",
-            data : {id : id},
-            success:(data)=> {
-                $("#table-items").load("table.config.php");
-                // alert("Амжилттай устгалаа");
+            console.log(id);
+            if (confirm("Та энэхүү дата-г устгахдаа итгэлтэй байна уу?")) {
+                $.ajax({
+                    url: "config.php",
+                    type: "POST",
+                    data: {
+                        id: id
+                    },
+                    success: (data) => {
+                        $("#table-items").load("table.config.php");
+                        // alert("Амжилттай устгалаа");
+                    }
+                });
             }
-        });
 
 
-    }
 
-</script>
+
+
+        }
+    </script>
     <div class="container shadow-lg p-4 mb-5 bg-white rounded">
-                    <div class="content">
-                        <form method="POST"  enctype="multipart/form-data" >
+        <div class="content">
+            <form method="POST" enctype="multipart/form-data">
 
-                                              
-                                        <h2 class=" text-primary text-center">Сугалааны нэр</h2>   
-                        
-                            <input  id="lottery_name" type="text" name="name" placeholder="Нэр"/> 
-            
 
-                        
+                <h2 class=" text-primary text-center">Сугалааны нэр</h2>
 
-                             <input id="oron" type="text" name="oron" placeholder="орон"/>
-                             <input  id="aztan" type="text" name="aztan" placeholder="азтан"/>
-
-                           
-                           <input type="hidden" name="a" value="insert">
-                           <input id="img-file" type="file" class="file" name="file" /> 
-
-                            
-                                    <input type="hidden" name="a" value="save">
-                                    <input class="btn btn-primary text-center" type="button" onclick="saveConfig()" value="Хадгалах" name="save" />
-                            
-                            <div id="error"> </div>
-                        </form>
-                        </div>
-
-     </div>
+                <input id="lottery_name" type="text" name="name" placeholder="Нэр" />
 
 
 
-   
-     <div class="container jumbotron  shadow-lg p-3 mb-5 rounded">
-                <div class="row">
-                            <div class="col-12">
-                            
-                                <div id="table-items">
 
-                                </div>
-                            </div>                                        
+                <input id="oron" type="text" name="oron" placeholder="орон" />
+                <input id="aztan" type="text" name="aztan" placeholder="азтан" />
+
+
+                <input type="hidden" name="a" value="insert">
+                <input id="img-file" type="file" class="file" name="file" />
+
+
+                <input type="hidden" name="a" value="save">
+                <input class="btn btn-primary text-center" type="button" onclick="saveConfig()" value="Хадгалах" name="save" />
+
+                <div id="error"> </div>
+            </form>
+        </div>
+
+    </div>
+
+
+
+
+    <div class="container jumbotron  shadow-lg p-3 mb-5 rounded">
+        <div class="row">
+            <div class="col-12">
+
+                <div id="table-items">
+
                 </div>
+            </div>
+        </div>
 
     </div>
 
     <div id="dialog" title="Засах">
 
-</div>
-    
+    </div>
 
 
-        <script src="./bootstrap-4.5.0/js/bootstrap.min.js"></script>
-  
+
+    <script src="./bootstrap-4.5.0/js/bootstrap.min.js"></script>
+
 </body>
+
 </html>

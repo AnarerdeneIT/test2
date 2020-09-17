@@ -18,7 +18,7 @@
   
               $output='';
              
-              $output .= '<div><table class="table table-dark">
+              $output .= '<div><table class="table" style="background-color:#0095da;color:white;">
               <thead>
                 <tr>
                   <th width="10%" scope="col">Төрлийн дугаар</th>

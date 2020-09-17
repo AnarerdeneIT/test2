@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,14 +8,16 @@
     <script src="./script/main.js"></script>
     <title>Сугалаа</title>
 
-  <link href="./bootstrap-4.5.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./bootstrap-4.5.0/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <link rel="stylesheet" href="./style/index.css">
 <script src="./bootstrap-4.5.0/js/jquery-3.5.1.min.js"></script>
 
+
+
 <body>
-<? 
+    <? 
 $con =  new mysqli('localhost','root','',"lottery");
 if(!$con) trigger_error(mysqli_connect_error());
       $orontest='';
@@ -116,25 +119,27 @@ if(!$con) trigger_error(mysqli_connect_error());
    
 
 ?>
-    <div class="container-fluid text-right"> 
-       <div class="row menu">
-                        <div class="col-md-6 text-left">
-                                <img style="height:100;width:100px;"src="./photos/tdb.png" class="img-fluid" alt="Desc" />
-                    
-                        </div>
+    <div class="container-fluid text-right">
+        <div class="row menu">
+            <div class="col-md-6 text-left">
+                <img style="height:100;width:100px;" src="./photos/tdb.png" class="img-fluid" alt="Desc" />
 
-                            <br class="my-4">
-                    <div class="col-md-6">
-                            <a class="btn" href="http://localhost/test/admin.php">АДМИН</a>
-                    </div>
+            </div>
+
+            <br class="my-4">
+            <div class="col-md-6">
+                <a class="btn" href="http://localhost:8080/test/admin.php">АДМИН</a>
+            </div>
         </div>
 
         <div class="col-md-12 text-center" id="ylagch">
-             
-              <h1 class="text-center text-primary">Сугалааны дугаар:<? echo $randomToo?></h1>
 
-          
-              <? 
+            <h1 class="text-center " style="color:#083261">Сугалааны дугаар:
+                <? echo $randomToo?>
+            </h1>
+
+
+            <? 
             
                 $ylagch="update customer set winner = 1 ,status = 0 where lottery_num =$randomToo  ";
                 $urdun = $con->query($ylagch);
@@ -143,7 +148,7 @@ if(!$con) trigger_error(mysqli_connect_error());
              
                 if($resultName = $con->query($nameSql)) {
                     if($row = $resultName->fetch_assoc()) {
-                        echo "<h1 class='text-primary'><strong>Эрхэм хүндэт хэрэглэгч&nbsp" .$row['customer_name']. "&nbspта азтан боллоо.</strong></h1>";
+                        echo "<h1 style='color:#083261'><strong>Хэрэглэгч&nbsp" .$row['customer_name']. "&nbsp азтан боллоо.</strong></h1>";
                     }
                     else {
                         echo "<h1 class='text-primary'><strong>Алдаа ялагч үлдсэнгүй</strong></h1>";
@@ -156,22 +161,19 @@ if(!$con) trigger_error(mysqli_connect_error());
 
         </div>
 
-  
-              
+
+
     </div>
     <br class="my-4">
 
-    <div id="container" class="container"  >
+    <div id="container" class="container">
 
-    <form action="index.php?a=save">
+        <form action="index.php?a=save">
             <div class="d-flex justify-content-center flex-column pic">
-          
-                             <select
-                              name="select1" id="aztan">
-                                    <? 
 
-                                        $con =  new mysqli('localhost','root','',"lottery");
-                                            if(!$con) trigger_error(mysqli_connect_error());
+                <select name="select1" id="aztan">
+                    <? 
+
                                                         $selectSql = "
                                                                     SELECT *
                                                                     from lottery_name
@@ -183,16 +185,14 @@ if(!$con) trigger_error(mysqli_connect_error());
                                         }
 
                                         ?>
-                             </select> 
-                             <hr class="my-3">
+                </select>
+                <hr class="my-3">
 
                 <div class="img-fluid text-center">
-                <? 
+                    <? 
             
                     $typeId=1;
                 global $typeIdddd;
-                    $con =  new mysqli('localhost','root','','lottery');
-                    if(!$con) trigger_error(mysqli_connect_error());
                   
                           
                      $typeawahsql="select lottery_id from lottery_name where lottery_name ='$typeIdddd'";
@@ -212,24 +212,24 @@ if(!$con) trigger_error(mysqli_connect_error());
         
                       
                     }
-                                       ?> 
-                <img style="width:400;height:400px;margin-top:50px;" src="<? echo $image_src ?>" alt="zurag">
-                    
+                                       ?>
+                    <img style="width:400;height:400px;margin-top:50px;" src="<? echo $image_src ?>" alt="zurag">
+
                 </div>
                 <main>
                 </main>
                 <input type="hidden" name="a" value="search">
-                 <input class="btn"  type="submit" value="Хайх" name="search" />
-        
+                <input class="btn" type="submit" value="Хайх" name="search" />
+
             </div>
- </form>
+        </form>
 
 
 
     </div>
-   
-                    <div id="contain" class="contain"> 
-                        <?
+
+    <div id="contain" class="contain">
+        <?
 
                                 for($i=count($list)-1; $i>=0 ;$i--) {
                                  
@@ -237,7 +237,8 @@ if(!$con) trigger_error(mysqli_connect_error());
                                 }
                                 
                          ?>
-                    </div>
-    
+    </div>
+
 </body>
+
 </html>
